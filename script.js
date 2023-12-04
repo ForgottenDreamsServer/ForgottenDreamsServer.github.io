@@ -1,17 +1,18 @@
-var socket = io();
-let members = {}
-
-socket.on('updatePlayers', function(players) {
-    console.log(players);
-    members = players;
-})
-
-socket.on('reloadPage', function () {
-  // Reload the page when instructed by the server
-  window.location.reload();
-});
 
 document.addEventListener("DOMContentLoaded", function() {
+  var socket = io();
+  let members = {}
+
+  socket.on('updatePlayers', function(players) {
+      console.log(players);
+      members = players;
+  })
+
+  socket.on('reloadPage', function () {
+    // Reload the page when instructed by the server
+    window.location.reload();
+  });
+
   let wheel = document.querySelector('.wheel');
   let spinBtn = document.querySelector('.spinBtn');
   var rect = wheel.getBoundingClientRect();
